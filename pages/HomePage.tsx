@@ -3,7 +3,6 @@ import { StyleSheet, Text, TextInput, View, TouchableOpacity, ViewProps, Activit
 import demoService from '../services/demoService'
 import { User } from '../types/user.type'
 import CameraPage from "./CameraPage";
-import FilteredImage from "../components/FilteredImage";
 // import useAuth from "../hooks/useAuth";
 
 
@@ -24,8 +23,6 @@ function LoginPage({navigation}) {
                 <TouchableOpacity onPress={() => {navigation.navigate("Chat")}}>
                     <Text style={styles.loginText}>Lecha</Text>
                 </TouchableOpacity>
-
-                <FilteredImage/>
                 
             </View>
         </View>

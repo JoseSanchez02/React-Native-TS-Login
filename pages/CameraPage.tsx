@@ -14,8 +14,6 @@ import {
 } from "react-native";
 import * as MediaLibrary from "expo-media-library";
 import * as ImagePicker from "expo-image-picker";
-import { Cloudinary } from "@cloudinary/url-gen";
-import { UploadApiOptions, upload } from "cloudinary-react-native";
 import * as Crypto from "expo-crypto";
 
 export default function CameraPage() {
@@ -62,34 +60,6 @@ export default function CameraPage() {
     );
   }
 
-  async function uploadImageToCloudinarySDK(uri: String) {
-    const cld = new Cloudinary({
-      cloud: {
-        cloudName: "dpjwt3wc0",
-        apiKey: "924747896266865",
-        apiSecret: "JD8svlGklQSgx3Tw9DsqMJDrPIU",
-
-      },
-      url: {
-        secure: true,
-      },
-    });
-
-    const options: UploadApiOptions = {
-      upload_preset: "ml_default",
-      public_id: "wachumaralavaquita",
-    };
-
-    console.log(uri);
-
-    await upload(cld, {
-      file: uri,
-      options,
-      callback: (error: any, response: any) => {
-        console.log(response ?? error);
-      },
-    });
-  }
 
   async function uploadImageToCloudinaryRaw(base64){
     const base64Image = "data:image/jpeg;base64," + base64;
